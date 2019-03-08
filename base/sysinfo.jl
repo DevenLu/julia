@@ -234,7 +234,18 @@ function loadavg()
     return loadavg_
 end
 
+"""
+    Sys.free_memory()
+
+Get the total free memory in RAM in kilobytes.
+"""
 free_memory() = ccall(:uv_get_free_memory, UInt64, ())
+
+"""
+    Sys.total_memory()
+
+Get the total memory in RAM (used and unused) in kilobytes.
+"""
 total_memory() = ccall(:uv_get_total_memory, UInt64, ())
 
 """
